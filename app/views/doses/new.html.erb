@@ -1,0 +1,28 @@
+<!--
+<div class="card">
+  <div class="card-header">
+    <h1>Add Doses</h1>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      <form action="/cocktails" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="title">ingredient: </label>
+  <input type="text" name="ingredient[name]" id="title">
+<br>
+  <label for="title">dose: </label>
+  <input type="text" name="dose[name]" id="title">
+<br>
+  <input type="submit" value="add new doses">
+</form>
+    </h5>
+  </div>
+</div> -->
+
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.submit "add a dose", class: "btn btn-primary" %>
+<% end %>
+
