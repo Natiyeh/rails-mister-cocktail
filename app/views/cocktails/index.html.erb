@@ -1,9 +1,14 @@
 <h1>LIST OF COCKTAILS!</h1>
 <p>this is our assortment of hand crafted cocktails, made fresh upon request.</p>
-<ul>
-<% @cocktails.each do |cocktail| %>
-<li><%= link_to(cocktail.name, cocktail_path(cocktail)) %></li>
-<% end %>
-</ul>
-
-<%= link_to("create a new cocktail", new_cocktail_path) %>
+<div class="row justify-content-center">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card mx-auto" style="width: 18rem;">
+      <img src="https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?cs=srgb&dl=alcoholic-beverage-beverage-citrus-1232152.jpg&fm=jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= cocktail.name %></h5>
+        <p class="card-text"><%= cocktail.description %></p>
+        <%= link_to 'details', cocktail_path(cocktail) %>
+      </div>
+    </div>
+  <% end %>
+</div>
