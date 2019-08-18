@@ -1,11 +1,33 @@
-<h1><%= @cocktail.name %></h1>
-<h2>Ingredients</h2>
-
-<% @cocktail.doses.each do |dose| %>
-<div>
-  <h4><%= dose.ingredient.name %> <%= link_to 'delete', dose_path(dose), method: :delete %></h4>
-  <p><%= dose.description %></p>
+<div class="card">
+  <div class="card-body text-center">
+    <h1><%= @cocktail.name %></h1>
+    <%= button_to "delete cocktail", cocktail_path(@cocktail), method: :delete %>
+  </div>
 </div>
-<% end %>
 
-<%= link_to "add an ingredient", new_cocktail_dose_path(@cocktail) %>
+<div class="d-flex justify-content-around">
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      Ingredients
+    </div>
+    <ul class="list-group list-group-flush">
+      <% @cocktail.doses.each do |dose| %>
+
+      <li class="list-group-item"><%= dose.ingredient.name %><p><%= dose.description %></p><%= button_to 'delete', dose_path(dose), method: :delete %></li>
+
+      <% end %>
+      <li class="list-group-item"><%= link_to "add an ingredient", new_cocktail_dose_path(@cocktail) %></li>
+    </ul>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      description
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= @cocktail.description %></li>
+    </ul>
+  </div>
+  <div><%= image_tag "https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?cs=srgb&dl=bar-beverage-cocktail-109275.jpg&fm=jpg", alt: "alttext", style: "width: 20rem;" %></div>
+</div>
+
+
