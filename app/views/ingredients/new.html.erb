@@ -1,4 +1,6 @@
-<%= simple_form_for [@ingredient] do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "create", class: "btn btn-primary" %>
-<% end %>
+<div class="d-inline-flex p-5 bd-highlight">
+  <%= simple_form_for [@ingredient] do |f| %>
+    <%= f.input :name %>
+    <%= f.submit "create", class: "btn btn-primary" %>
+  <% end %>
+</div>

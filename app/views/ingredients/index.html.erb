@@ -1,6 +1,7 @@
-<ul>
+<ul class="list-group">
   <% @ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
+    <li class="list-group-item"><%= ingredient.name %></li>
   <% end %>
 </ul>
+
 <%= link_to "add", new_ingredient_path %>
